@@ -1,14 +1,16 @@
 {% extends "AcaLoc/base.html" %}
 {% block content %}
-    {% for Aca in Acas %}
-        <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{Aca.academician}}</a>
-            </div>
-            <h2><a class="article-title" href="#">{{ Aca.department }}</a></h2>
-            <p class="article-content">{{Aca.location }}</p>
-          </div>
-        </article>
+    <form action="{% url 'AcaLoc-home' %}" class="search-form">
+        <input type="text" list="Acalist" name="q" placeholder="Search" align="center" style="width:300px" ;>
+    </form>
+
+    <datalist id="Acalist">
+        {% for a in query_chain %}
+            <option value="{{ a.name }} {{ a.last_name }} {{ a.tag }}">
+        {% endfor %}
+    </datalist>
+    {% for a in query_chain %}
+        <p>{{ a.name }} {{ a.last_name }} {{ a.department.latitude }} {{ a.department.longitude }} {{ a.MarketPlace.location }} {{ a.location }} {{ a.tag }}</p>
     {% endfor %}
+
 {% endblock content %}

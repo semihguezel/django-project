@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'AcaLoc.apps.AcalocConfig',
 ]
 
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -79,7 +81,7 @@ DATABASES = {
         'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'Deneme',
+        'NAME': 'AcaLoc',
 
         'USER': 'postgres',
 
